@@ -11,6 +11,6 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Queries.GetAllLeaveTy
     //{
     //}
 
-    public record GetLeaveTypeDetailsQuery : IRequest<List<LeaveTypeDetailDto>>;
+    public record GetLeaveTypeQuery : IRequest<List<LeaveTypeDto>>;
    
 }

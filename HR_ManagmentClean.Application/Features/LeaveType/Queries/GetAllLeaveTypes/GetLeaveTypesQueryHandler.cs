@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace HR_ManagmentClean.Application.Features.LeaveType.Queries.GetAllLeaveTypes
 {
-    public class GetLeaveTypeDetailsQueryHandler : IRequestHandler<GetLeaveTypeDetailsQuery, List<LeaveTypeDetailDto>>
+    public class GetLeaveTypeQueryHandler : IRequestHandler<GetLeaveTypeQuery, List<LeaveTypeDto>>
     {
         private readonly IMapper _mapper;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
-        public GetLeaveTypeDetailsQueryHandler(IMapper mapper,ILeaveTypeRepository leaveTypeRepository)
+        public GetLeaveTypeQueryHandler(IMapper mapper,ILeaveTypeRepository leaveTypeRepository)
         {
             this._mapper = mapper;
             this._leaveTypeRepository = leaveTypeRepository;
         }
-        public async Task<List<LeaveTypeDetailDto>> Handle(GetLeaveTypeDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<List<LeaveTypeDto>> Handle(GetLeaveTypeQuery request, CancellationToken cancellationToken)
         {
             //query databas 
             var leaveTypes = await _leaveTypeRepository.GetAsync();
 
-            var data =_mapper.Map<List<LeaveTypeDetailDto>>(leaveTypes);
+            var data =_mapper.Map<List<LeaveTypeDto>>(leaveTypes);
             //convert data obj to dto 
             //return list of dto
 

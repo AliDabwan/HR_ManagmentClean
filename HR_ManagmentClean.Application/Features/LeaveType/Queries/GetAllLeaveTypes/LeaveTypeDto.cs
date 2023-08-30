@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HR_ManagmentClean.Application.Features.LeaveType.Queries.GetAllLeaveTypes
 {
-    public class LeaveTypeDetailDto
+    public class LeaveTypeDto
     {
         public int Id { get; set; }
 
