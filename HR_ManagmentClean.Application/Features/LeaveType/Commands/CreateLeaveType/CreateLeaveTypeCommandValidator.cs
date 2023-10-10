@@ -21,7 +21,7 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Commands.CreateLeaveT
                 .NotNull()
                 .MaximumLength(70)
                 .WithMessage("{PropertyName} must be fewer than 70");
-
+             
             RuleFor(p => p.DefaultDays)
                 .GreaterThan(1)
                 .WithMessage("{PropertyName} must be fewer than 1")
