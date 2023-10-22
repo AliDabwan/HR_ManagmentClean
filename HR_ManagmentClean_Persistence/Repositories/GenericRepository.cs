@@ -1,5 +1,6 @@
 ﻿using HR_ManagmentClean.Application.Contracts.Persistence;
 using HR_ManagmentClean_Persistence.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HR_ManagmentClean_Persistence.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> :// IGenericRepository<T> where T : class
     {
         protected readonly HrDatabaseContext _context;
 
@@ -30,24 +31,20 @@ namespace HR_ManagmentClean_Persistence.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task<List<T>> GetAsync()
+        public async Task<IReadOnlyList<T>> GetAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public Task<T> GetByNameAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
+      
 
-        public Task<T> UpdateAsync(T entity)
-        {
-            throw new NotImplementedException();
-        }
+       
+
+       
     }
 }
