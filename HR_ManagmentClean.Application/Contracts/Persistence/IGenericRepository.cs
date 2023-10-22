@@ -1,6 +1,8 @@
-﻿namespace HR_ManagmentClean.Application.Contracts.Persistence
+﻿using HR_ManagmentClean.Domin.Common;
+
+namespace HR_ManagmentClean.Application.Contracts.Persistence
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<T> where T : BaseEntity
     {
         Task<IReadOnlyList<T>> GetAsync();
         Task<T> GetByIdAsync(int id);
