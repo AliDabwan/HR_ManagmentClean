@@ -15,4 +15,10 @@
     <ProjectReference Include="..\HR_ManagmentClean.Application\HR_ManagmentClean.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="HR_ManagmentClean.Domin">
+      <HintPath>..\HR_ManagmentClean.Domin\obj\Debug\net6.0\ref\HR_ManagmentClean.Domin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

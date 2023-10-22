@@ -1,0 +1,53 @@
+﻿using HR_ManagmentClean.Application.Contracts.Persistence;
+using HR_ManagmentClean_Persistence.DatabaseContext;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HR_ManagmentClean_Persistence.Repositories
+{
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    {
+        protected readonly HrDatabaseContext _context;
+
+        public GenericRepository(HrDatabaseContext context)
+        {
+            this._context = context;
+        }
+
+        public async Task<T> CreateAsync(T entity)
+        {
+         await   _context.AddAsync(entity);
+           await _context.SaveChangesAsync();
+            return entity;
+        }
+
+        public async Task DeleteAsync(T entity)
+        {
+           _context.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public Task<List<T>> GetAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> GetByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> UpdateAsync(T entity)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
