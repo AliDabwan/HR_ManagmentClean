@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HR_ManagmentClean_Persistence.Repositories
 {
-    public class GenericRepository<T> :// IGenericRepository<T> where T : class
+    public class GenericRepository<T> :IGenericRepository<T> where T : class
     {
         protected readonly HrDatabaseContext _context;
 
@@ -43,8 +43,11 @@ namespace HR_ManagmentClean_Persistence.Repositories
 
       
 
-       
-
-       
+        public async Task UpdateAsync(T entity)
+        {
+            _context.Update(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
     }
 }

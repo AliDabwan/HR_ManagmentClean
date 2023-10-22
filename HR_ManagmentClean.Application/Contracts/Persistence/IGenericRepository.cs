@@ -4,7 +4,6 @@
     {
         Task<IReadOnlyList<T>> GetAsync();
         Task<T> GetByIdAsync(int id);
-        Task<T> GetByNameAsync(string name);
 
         Task<T> CreateAsync(T entity);
         Task UpdateAsync(T entity); 

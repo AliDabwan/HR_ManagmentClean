@@ -1,4 +1,6 @@
-﻿using HR_ManagmentClean_Persistence.DatabaseContext;
+﻿using HR_ManagmentClean.Application.Contracts.Persistence;
+using HR_ManagmentClean_Persistence.DatabaseContext;
+using HR_ManagmentClean_Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,12 @@ namespace HR_ManagmentClean_Persistence
             {
                 opt.UseSqlServer(configuration.GetConnectionString("HrDatabaseConnectionString"));
             });
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ILeaveTypeRepository,LeaveTypeRepository>();
+            services.AddScoped<ILeaveRequestRepository,LeaveRequestRepository>();
+            services.AddScoped<ILeaveAllocationRepository,LeaveAllocationRepository>();
+
             return services;
         }
         
