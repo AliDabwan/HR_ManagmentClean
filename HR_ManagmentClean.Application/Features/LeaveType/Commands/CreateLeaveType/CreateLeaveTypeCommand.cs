@@ -9,6 +9,7 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Commands.CreateLeaveT
 {
     public class CreateLeaveTypeCommand:IRequest<Domin.LeaveType>
     {
+
         public string  Name { get; set; }=string.Empty;
         public int DefaultDays { get; set; }
     }

@@ -18,7 +18,7 @@ namespace HR_ManagmentClean_Infrastructure
             ,IConfiguration configuration) 
         {
 
-            //services.Configure<EmailSettings>(configuration.GetSection(key: "EmailSettings"));
+            services.Configure<EmailSettings>(configuration.GetSection(key: "EmailSettings"));
             services.AddTransient<IEmailSender, EmailSender>();
            
             return services;
