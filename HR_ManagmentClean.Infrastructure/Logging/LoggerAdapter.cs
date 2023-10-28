@@ -18,12 +18,12 @@ namespace HR_ManagmentClean.Infrastructure.Logging
         }
         public void LogInformation(string message, params object[] args)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation(message, args);
         }
 
         public void LogWarning(string message, params object[] args)
         {
-            throw new NotImplementedException();
+            _logger.LogWarning(message, args);
         }
     }
 }
