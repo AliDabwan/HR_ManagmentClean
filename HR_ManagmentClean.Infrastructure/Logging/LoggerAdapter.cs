@@ -10,7 +10,7 @@ namespace HR_ManagmentClean.Infrastructure.Logging
 {
     public class LoggerAdapter<T> : IAppLogger<T>
     {
-        private readonly ILogger<T> _logger;
+        private readonly ILogger<T> _logger; 
         public LoggerAdapter(ILoggerFactory loggerFactory)
         {
             _logger=loggerFactory.CreateLogger<T>();
