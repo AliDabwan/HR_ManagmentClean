@@ -16,7 +16,7 @@ namespace HR_ManagmentClean_Infrastructure
 {
     public static class InfrastructureServiceRegistration
     {
-        public static IServiceCollection AddPersistenceServices(this IServiceCollection services
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services
             ,IConfiguration configuration) 
         {
 

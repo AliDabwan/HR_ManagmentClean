@@ -8,7 +8,7 @@ namespace HR_ManagmentClean.Domin
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        [ForeignKey("LeaveTypeId")]
+        //[ForeignKey("LeaveTypeId")]
         public LeaveType? LeaveType { get; set; }
         public int LeaveTypeId { get; set; }
         public int DateRequested { get; set; }

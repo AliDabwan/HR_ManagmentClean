@@ -23,6 +23,7 @@ namespace HR_ManagmentClean_Persistence.Configurations
                      DefaultDays = 10,
                      DateCreated = DateTime.Now,
                      DateModified = DateTime.Now,
+                    
                  }
                  );
 
