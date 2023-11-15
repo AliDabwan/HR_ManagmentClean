@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HR_ManagmentClean.Application.Contracts.Persistence;
 using HR_ManagmentClean.Application.Exceptions;
+using HR_ManagmentClean.Domin;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,11 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Queries.GetLeaveTypeD
         public async Task<LeaveTypeDetailDto> Handle(GetLeaveTypeDetailsQuery request, CancellationToken cancellationToken)
         {
             //query databas 
-            var leaveTypes = await _leaveTypeRepository.GetByIdAsync(request.Id) ?? 
-                throw new NotFoundException(nameof(LeaveType), request.Id);
+            var leaveTypes = await _leaveTypeRepository.GetByIdAsync(request.Id);
 
+            if(leaveTypes==null) {
+                throw new NotFoundException(nameof(LeaveType), request.Id);
+            }
             //verify
             var data =_mapper.Map<LeaveTypeDetailDto>(leaveTypes);
             //convert data obj to dto 

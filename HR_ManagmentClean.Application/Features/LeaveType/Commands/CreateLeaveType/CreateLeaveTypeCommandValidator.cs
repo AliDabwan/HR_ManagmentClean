@@ -23,10 +23,10 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Commands.CreateLeaveT
                 .WithMessage("{PropertyName} must be fewer than 70");
              
             RuleFor(p => p.DefaultDays)
-                .GreaterThan(1)
-                .WithMessage("{PropertyName} must be fewer than 1")
-                .LessThan(valueToCompare: 100)
-                .WithMessage("{PropertyName} can not be less than 100");
+                .LessThan(100)
+                .WithMessage("{PropertyName} must be fewer than 100")
+                .GreaterThanOrEqualTo(valueToCompare: 1)
+                .WithMessage("{PropertyName} can not be less than 1");
 
             RuleFor(q => q)
                 .MustAsync(LeaveTypeNameUnique)

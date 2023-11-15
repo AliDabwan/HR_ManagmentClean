@@ -41,7 +41,8 @@ namespace HR_ManagmentClean.Application.Features.LeaveType.Commands.CreateLeaveT
             }
             if (!validateResult.IsValid)
                 //thrw excep
-                throw new BadRequestException("Invalid LeaveType", validateResult);
+
+            throw new BadRequestException("Invalid LeaveType", validateResult);
             //convert to domin entity obj
 
             var leaveTypeToCreate = _mapper.Map<Domin.LeaveType>(request);
